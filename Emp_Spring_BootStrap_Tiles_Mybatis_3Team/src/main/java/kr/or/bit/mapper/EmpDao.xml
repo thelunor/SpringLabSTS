@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.bit.dao.EmpDao"><!-- 인터페이스와 namespace 맞춰주기 -->
+	
+	<!-- 
+		<Parameter를 받는 방법>
+		1. getCount(String field, String query) >> hashMap 
+		2. getCount(String field, String query) >> parameter 2개 이상인 경우
+			>> Mybatis가 제공하는 param1, param2, param3: parameter가 2개 이상인 경우(1개일 경우는 불가)
+			>> String field >> param1
+			>> String query >> param2
+			>> 이 방식이 싫으면 hashMap
+		3. parameter 1개 getNum(int i) >> 생략, parameterType="int" >> i 이름
+		4. vo, dto 타입으로 빋기
+	-->
+	
+	<!-- 관리자 로그인 -->
+	<select id="checkAdminLogin" resultType="String">
+		SELECT ID FROM ADMINLIST WHERE ID=#{param1} AND PWD=#{param2}
+	</select>
+	
+	<!-- 사원 목록 조회 -->
+	<select id="getEmps" resultType="kr.or.bit.dto.Emp">
+		SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO 
+		FROM EMP
+	</select>
+	
+</mapper>
