@@ -28,4 +28,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM EMP
 	</select>
 	
+	<!-- 사원 상세정보 보기 -->
+	<select id="getEmpByEmpno" resultType="kr.or.bit.dto.Emp">
+		SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, IMAGEFILENAME 
+		FROM EMP WHERE EMPNO=#{empno}
+	</select>
+	
+	<!-- 사원 등록 -->
+	<insert id="insertEmp" parameterType="kr.or.bit.dto.Emp">
+		INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, IMAGEFILENAME)
+		VALUES (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno}, #{imagefilename})
+	</insert>
+	
+	<!-- 사원 정보수정 -->
+	<update id="updateEmp" parameterType="kr.or.bit.dto.Emp">
+		UPDATE EMP 
+		SET ENAME=#{ename}, JOB=#{job}, MGR=#{mgr}, HIREDATE=#{hiredate}, SAL=#{sal}, COMM=#{comm}, DEPTNO=#{deptno}, IMAGEFILENAME=#{imagefilename} 
+		WHERE EMPNO=#{empno}
+	</update>
+	
 </mapper>

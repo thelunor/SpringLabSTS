@@ -1,8 +1,5 @@
 package kr.or.bit.dto;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class Emp {
@@ -10,17 +7,26 @@ public class Emp {
 	private String ename;
 	private String job;
 	private int mgr;
-	private Date hiredate;
+	private String hiredate;
 	private int sal;
 	private int comm;
 	private int deptno;
 	private String imagefilename;
-
-	public int getEmpno() {
-		return empno;
+	
+	private CommonsMultipartFile file;
+	
+	public CommonsMultipartFile getFile() {
+		return file;
 	}
+
+	public void setFile(CommonsMultipartFile file) {
+		this.file = file;
+	}
+
 	public Emp() { }
-	public Emp(int empno, String ename, String job, int mgr, Date hiredate, int sal, int comm, int deptno) {
+	
+	public Emp(int empno, String ename, String job, int mgr, String hiredate, int sal, int comm, int deptno,
+			String imagefilename) {
 		super();
 		this.empno = empno;
 		this.ename = ename;
@@ -30,6 +36,11 @@ public class Emp {
 		this.sal = sal;
 		this.comm = comm;
 		this.deptno = deptno;
+		this.imagefilename = imagefilename;
+	}
+
+	public int getEmpno() {
+		return empno;
 	}
 
 	public void setEmpno(int empno) {
@@ -60,11 +71,11 @@ public class Emp {
 		this.mgr = mgr;
 	}
 
-	public Date getHiredate() {
+	public String getHiredate() {
 		return hiredate;
 	}
 
-	public void setHiredate(Date hiredate) {
+	public void setHiredate(String hiredate) {
 		this.hiredate = hiredate;
 	}
 
@@ -91,21 +102,19 @@ public class Emp {
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
-	
-	private List<CommonsMultipartFile> files;
-	
-	public List<CommonsMultipartFile> getFiles() {
-		return files;
+
+	public String getImagefilename() {
+		return imagefilename;
 	}
 
-	public void setFiles(List<CommonsMultipartFile> files) {
-		this.files = files;
+	public void setImagefilename(String imagefilename) {
+		this.imagefilename = imagefilename;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Emp [empno=" + empno + ", ename=" + ename + ", job=" + job + ", mgr=" + mgr + ", hiredate=" + hiredate
-				+ ", sal=" + sal + ", comm=" + comm + ", deptno=" + deptno + ", imagefilename=" + imagefilename
-				+ ", files=" + files + "]";
+				+ ", sal=" + sal + ", comm=" + comm + ", deptno=" + deptno + ", imagefilename=" + imagefilename + "]";
 	}
+	
 }

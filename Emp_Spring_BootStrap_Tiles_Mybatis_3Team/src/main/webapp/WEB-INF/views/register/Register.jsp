@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +28,7 @@
 	    	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     	}
     </style>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 	    $(function(){
 	    	$.ajax({
 	    		url:"GetDeptNos",
@@ -110,7 +111,7 @@
 	    		}
 	    	});
 	    });
-    </script>
+    </script> -->
 </head>
 
 <body id="page-top">
@@ -134,22 +135,22 @@
                             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form action="RegisterOk.do" method="post" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                		<div class="form-row">
-                                                   			<div class="col-md-6">
-                                                        		<div class="form-label-group">
-                                                            		<img id="viewPhoto" name="viewPhoto" src="images/defaultProfile.png" alt="" style="width:10em; height:100%;">
-                                                        		</div>
-                                                    		</div>
-                                                    		<div class="col-md-6">
-                                                        		<div class="form-label-group">
-                                                            		<input type="file" id="photo" name="photo" class="form-control" accept="image/*">
-                                                            		<label for="photo">photo</label>
-                                                        		</div>
-                                                    		</div>
-                                                		</div>
-                                            		</div>
+                                          		<div class="form-row">
+                                           			<div class="col-md-6">
+                                                   		<div class="form-label-group">
+                                                       		<img id="viewPhoto" name="viewPhoto" src="images/defaultProfile.png" alt="" style="width:10em; height:100%;">
+                                                   		</div>
+                                               		</div>
+                                               		<div class="col-md-6">
+                                                   		<div class="form-label-group">
+                                                       		<input type="file" id="file" name="file" class="form-control" accept="image/*">
+                                                       		<label for="photo">photo</label>
+                                                   		</div>
+                                               		</div>
+                                           		</div>
+                                       		</div>
                                             <div class="form-group">
                                                 <div class="form-row">
                                                     <div class="col-md-6">
@@ -180,9 +181,11 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-label-group">
-                                                        	 <select id="jobSelect" name="job" style="height : 49px">
-                                                        	 <option hidden>직종 선택</option>                                                          
-                                                             </select>
+															<input type="text" id="job" name="job" class="form-control" placeholder="job">
+                                                            <label for="job">Job</label>
+                                                        	 <!-- <select id="jobSelect" name="job" style="height : 49px">
+                                                        	 	<option hidden>직종 선택</option>
+                                                             </select> -->
                                                             <label for="job"></label>
                                                         </div>
                                                     </div>
@@ -192,18 +195,23 @@
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="form-label-group">
-                                                        Dept No 
+                                                        <p>Dept No</p>
                                                             <select id="deptSelect" name="deptno" style="height : 49px">
                                                             	<option hidden>부서번호 선택</option>
+                                                            	<option>10</option>
+                                                            	<option>20</option>
+                                                            	<option>30</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
+                                                    <p>Manager</p>
                                                         <div class="form-label-group">
-                                                        Manager 
-                                                        	<select id="mgrSelect" name="mgr" style="height : 49px">
+                                                        	<input type="number" id="mgr" name="mgr" class="form-control" placeholder="Manager">
+                                                            <label for="mgr">Manager</label>
+                                                        	<!-- <select id="mgrSelect" name="mgr" style="height : 49px">
                                                             	<option hidden >Manager 선택</option>
-                                                            </select>
+                                                            </select> -->
                                                         </div>
                                                     </div>
                                                 </div>

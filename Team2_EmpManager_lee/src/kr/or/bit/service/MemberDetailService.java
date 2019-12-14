@@ -17,7 +17,7 @@ public class MemberDetailService implements Action {
 		Emp emp = new Emp();
 		try {
 			EmpDao empdao = new EmpDao();
-			emp =empdao.getEmpByEmpno(Integer.parseInt(request.getParameter("empno")));
+			emp = empdao.getEmpByEmpno(Integer.parseInt(request.getParameter("empno")));
 			request.setAttribute("empdetail", emp);
 			
 			forward = new ActionForward();

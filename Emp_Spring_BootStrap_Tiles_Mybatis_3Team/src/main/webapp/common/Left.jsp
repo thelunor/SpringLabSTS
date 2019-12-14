@@ -67,7 +67,7 @@
 		                <span>Login</span></a>
 		        </li>
 		         <li class="nav-item">
-		            <a class="nav-link" href="Register.do">
+		            <a class="nav-link" href="insertEmp.htm">
 		                <i class="fas fa-user-friends"></i>
 		                <span>Register</span></a>
 		        </li>

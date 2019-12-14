@@ -10,7 +10,7 @@ public interface EmpDao {
 	public int insertEmp(Emp emp);
 	
 	// 사원 조회(사번)
-	public Emp getEmpByEmpno(int no);
+	public Emp getEmpByEmpno(int empno);
 	
 	// 관리자 로그인 체크
 	public String checkAdminLogin(String id, String pwd);

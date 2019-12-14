@@ -28,12 +28,12 @@
 
         <div id="content-wrapper">
             <!-- !! Content !! -->
- 			<c:set var="emp" value="${requestScope.empdetail}"/>
+ 			<c:set var="emp" value="${requestScope.emp}"/>
             <div class="container-fluid">
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-user-tag"></i>
-                        	회원 정보 [<b>${emp.ename } 님</b>]
+                        	회원 정보 [<b>${emp.ename} 님</b>]
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
