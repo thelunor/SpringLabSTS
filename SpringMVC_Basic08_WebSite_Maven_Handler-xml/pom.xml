@@ -10,9 +10,7 @@
 	<!-- 추가 -->
   <!-- 버전설정 -->
   <properties>
-  	<org.springframework-version>
-     4.2.5.RELEASE
-    </org.springframework-version>
+  	<org.springframework-version>5.2.2.RELEASE</org.springframework-version>
     <db-version>
      11
     </db-version>
