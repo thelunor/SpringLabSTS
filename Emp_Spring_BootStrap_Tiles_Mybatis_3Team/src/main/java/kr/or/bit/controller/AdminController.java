@@ -88,6 +88,7 @@ public class AdminController {
 	// 사원 상세정보보기
 	@RequestMapping(value = "MemberDetail.htm", method = RequestMethod.GET)
 	public String getEmpByEmpno(int empno, Model model) {
+		System.out.println("사원 상세정보보기 컨트롤러 진입");
 		Emp emp = null;
 		CommonsMultipartFile file = null;
 		String imagefilename = null;
@@ -96,9 +97,12 @@ public class AdminController {
 			EmpDao empdao = sqlsession.getMapper(EmpDao.class);
 			emp = empdao.getEmpByEmpno(empno);
 			imagefilename = emp.getFile().getOriginalFilename();
-			
+			System.out.println(emp);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("MemberDetail Controller");
+			System.out.println("응? " + e.getMessage());
+			System.out.println(e.getStackTrace());
+			e.getStackTrace();
 		}
 		
 		model.addAttribute("emp", emp);
@@ -154,11 +158,42 @@ public class AdminController {
 	}
 	
 	// 사원 정보수정
-	public String updateEmp(Emp emp, HttpServletRequest request) {
-		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
-		Emp emp = empdao.getEmpByEmpno(empno);
+	@RequestMapping(value = "MemberEdit.htm", method = RequestMethod.POST)
+	public String updateEmp(Emp emp, Model model, HttpServletRequest request) {
+		System.out.println("사원 정보수정 컨트롤러 진입");
+		CommonsMultipartFile file = emp.getFile();
+		String imagefilename = file.getOriginalFilename();
+		String path = request.getServletContext().getRealPath("upload");
+		String filepath = path + "\\" + imagefilename;
 		
-		return null;
+		if (!file.equals("")) { // 실 파일 업로드
+			FileOutputStream fos = null;
+
+			try {
+				fos = new FileOutputStream(filepath);
+				fos.write(file.getBytes());
+				fos.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+			emp.setImagefilename(imagefilename);
+		}
+		
+		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
+		empdao.updateEmp(emp);
+		
+		model.addAttribute("emp", emp);
+		
+		return "redirect:MemberList.htm";
 	}
 	
+	// 사원 삭제
+	@RequestMapping(value = "MemberDelete.htm", method = RequestMethod.GET)
+	public String deleteEmpByEmpno(int empno) {
+		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
+		empdao.deleteEmpByEmpno(empno);
+		
+		return "redirect:MemberList.htm";
+	}
 }

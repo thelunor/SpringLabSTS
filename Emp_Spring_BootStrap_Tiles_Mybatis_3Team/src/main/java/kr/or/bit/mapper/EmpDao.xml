@@ -47,4 +47,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE EMPNO=#{empno}
 	</update>
 	
+	<!-- 사원 삭제 -->
+	<delete id="deleteEmpByEmpno">
+		DELETE FROM EMP WHERE EMPNO=#{empno}
+	</delete>
+	
 </mapper>

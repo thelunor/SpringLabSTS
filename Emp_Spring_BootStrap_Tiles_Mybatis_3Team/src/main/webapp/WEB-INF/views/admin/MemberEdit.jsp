@@ -53,7 +53,7 @@
                             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form action="MemberEditOk.do" method="post" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                         	<div class="form-group">
                                                 		<div class="form-row">
                                                    			<div class="col-md-6">
@@ -63,7 +63,7 @@
                                                     		</div>
                                                     		<div class="col-md-6">
                                                         		<div class="form-label-group">
-                                                            		<input type="file" id="photo" name="photo" class="form-control" accept="image/*">
+                                                            		<input type="file" id="file" name="file" class="form-control" accept="image/*">
                                                             		<label for="photo">photo</label>
                                                         		</div>
                                                     		</div>
@@ -147,7 +147,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="button" class="btn btn-danger btn-block" value="Cancel"
-                                                        		onClick="MemberList.do">
+                                                        		onClick="MemberList.htm">
                                                 </div>
                                                
                                             </div>

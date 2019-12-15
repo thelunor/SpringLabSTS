@@ -10,7 +10,7 @@
       $('#deleteModal').on('show.bs.modal', function(event) {          
          deleteId = $(event.relatedTarget).data('delete-id');
          $(".modal-body").prepend("<b>[ "+deleteId+" ]</b>");
-         $("#deletebtn").attr("href","MemberDelete.do?empno="+deleteId);
+         $("#deletebtn").attr("href","MemberDelete.htm?empno="+deleteId);
       });
    });
 </script>

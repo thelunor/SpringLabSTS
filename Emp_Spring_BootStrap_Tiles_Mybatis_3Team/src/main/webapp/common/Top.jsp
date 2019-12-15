@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
-<c:set var="userid" value="${sessionScope.userid}"/>
+<c:set var="userid" value="${sessionScope.id}"/>
 <c:choose>
-	<c:when test="${userid != null}">
+	<c:when test="${id != null}">
 		<c:set var="isLogin" value="true"/> 
-		<c:set var="infostr" value="${userid}"/>
+		<c:set var="infostr" value="${id}"/>
 	</c:when>
 	<c:otherwise>
 		<c:set var="infostr" value="로그인해주세요."/>
@@ -34,12 +34,12 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                      <c:choose>
                      	<c:when test ="${isLogin == 'true'}"> 
-	                     	<a class="dropdown-item" href="MemberList.do">Member</a>
+	                     	<a class="dropdown-item" href="MemberList.htm">Member</a>
 		                    <div class="dropdown-divider"></div>
                      	 	<a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Logout</a>
                      	</c:when>
                      	<c:otherwise>
-                     	 	<a class="dropdown-item" href="Login.do">Login</a>
+                     	 	<a class="dropdown-item" href="login.htm">Login</a>
                      	</c:otherwise>                     
                      </c:choose>
                 </div>

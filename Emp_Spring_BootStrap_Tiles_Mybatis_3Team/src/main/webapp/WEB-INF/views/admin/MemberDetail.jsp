@@ -40,7 +40,7 @@
                             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form action="MemberList.do" method="post">
+                                        <form action="" method="get" enctype="multipart/form-data">
                                            
                                                                            										
                                             
@@ -124,7 +124,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="submit" class="btn btn-primary btn-block" value="Ok" onClick="MemberList.do">
+                                            <input type="button" class="btn btn-primary btn-block" value="돌아가기" onClick="redirect:MemberList.htm">
                                         </form>
                                     </div>
                                 </div>
