@@ -40,16 +40,14 @@
                             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form action="" method="get" enctype="multipart/form-data">
-                                           
-                                                                           										
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             
                                             <div class="form-row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-label-group">
-                                                            <img src="upload/${emp.imagefilename}" onerror="this.src='images/defaultProfile.png'" style="width:10em; height:100%;">
-                                                        </div>
-                                                    </div>
+	                                            <div class="col-md-6">
+	                                                <div class="form-label-group">
+	                                                    <img src="upload/${emp.imagefilename}" onerror="this.src='images/defaultProfile.png'" style="width:10em; height:100%;">
+	                                                </div>
+	                                            </div>
                                             </div> 
                                             
                                             <div class="form-group">

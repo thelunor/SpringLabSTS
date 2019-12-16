@@ -28,16 +28,20 @@
 	    	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     	}
     </style>
-    <!-- <script type="text/javascript">
-	    $(function(){
+    <script type="text/javascript">
+	    $(function() {
 	    	$.ajax({
-	    		url:"GetDeptNos",
-	    		dataType:"json",
-	    		success:function(data){
+	    		url:"getDeptNos.htm",
+	    		type: "post",
+	    		dataType: "json",
+	    		success: function(data) {
+		    		console.log(data);
+		    		console.log(data.deptno);
+		    		console.log(data.deptnos);
 	    			var dArray = [];
 	    			dArray = data.deptno;
 	    			
-	    			for(var i=0; i<dArray.length;i++){
+	    			for(var i=0; i<dArray.length;i++) {
 	    				var option = document.createElement("option");
 	    				$(option).text(dArray[i]);
 	    				$("#deptSelect").append(option);
@@ -45,7 +49,7 @@
 	    		}
 	    	});
 	    	
-	    	$.ajax({
+/* 	    	$.ajax({
 	    		url:"GetEmpnos",
 	    		dataType:"json",
 	    		success:function(data){
@@ -56,9 +60,9 @@
 	    				$("#mgrSelect").append(option);
 	    			})
 	    		}
-	    	});
+	    	}); */
 	    	
-	    	$("#empnoCheck").click(function(){
+/* 	    	$("#empnoCheck").click(function(){
 	    		if($("#empno").val() == "" || $("#empno").val() == null){
 	    			alert("EMPNO 입력하세요");
 	    			$("#empno").focus();
@@ -82,9 +86,9 @@
 	    				}
 	    			});
 	    		}
-	    	});
-	    	
-	    	$("#photo").change(function(){
+	    	}); */
+
+/* 	    	$("#photo").change(function(){
 	    		var reader = new FileReader();
 
 	    	    reader.onload = function (e) {
@@ -94,9 +98,9 @@
 
 	    	    // read the image file as a data URL.
 	    	    reader.readAsDataURL(this.files[0]);
-	    	});
+	    	}); */
 	    	
-	    	$.ajax({
+/* 	    	$.ajax({
 	    		url:"GetJobRegister",
 	    		dataType:"json",
 	    		success:function(data){
@@ -109,9 +113,9 @@
 	    				$("#jobSelect").append(option);
 	    			}
 	    		}
-	    	});
+	    	}); */
 	    });
-    </script> -->
+    </script>
 </head>
 
 <body id="page-top">
@@ -196,11 +200,8 @@
                                                     <div class="col-md-6">
                                                         <div class="form-label-group">
                                                         <p>Dept No</p>
-                                                            <select id="deptSelect" name="deptno" style="height : 49px">
+                                                            <select id="deptSelect" name="deptno" style="height: 49px">
                                                             	<option hidden>부서번호 선택</option>
-                                                            	<option>10</option>
-                                                            	<option>20</option>
-                                                            	<option>30</option>
                                                             </select>
                                                         </div>
                                                     </div>

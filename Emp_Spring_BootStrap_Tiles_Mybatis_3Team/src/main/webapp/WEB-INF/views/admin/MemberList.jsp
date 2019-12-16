@@ -19,9 +19,8 @@
 			width: 100px;
 			text-align: center;
 		}
-</style>
+	</style>
 </head>
-
 <body id="page-top">
 <c:set var="emplist" value="${requestScope.emplist}"/>
     <!-- Top -->

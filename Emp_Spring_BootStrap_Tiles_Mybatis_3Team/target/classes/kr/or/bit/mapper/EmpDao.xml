@@ -52,4 +52,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM EMP WHERE EMPNO=#{empno}
 	</delete>
 	
+	<!-- Ajax -->
+	<select id="getDeptNos" resultType="Integer">
+		SELECT DEPTNO 
+		FROM DEPT 
+		ORDER BY DEPTNO ASC
+	</select>
+	
 </mapper>

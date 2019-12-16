@@ -1,9 +1,6 @@
 package kr.or.bit.controller;
 
 import java.io.FileOutputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -120,6 +117,7 @@ public class AdminController {
 	@RequestMapping(value = "insertEmp.htm", method = RequestMethod.POST)
 	public String insertEmp(Emp emp, Model model, HttpServletRequest request) {
 		System.out.println("사원 등록 컨트롤러 진입");
+		
 		CommonsMultipartFile file = emp.getFile();
 		String imagefilename = file.getOriginalFilename();
 		String path = request.getServletContext().getRealPath("upload");

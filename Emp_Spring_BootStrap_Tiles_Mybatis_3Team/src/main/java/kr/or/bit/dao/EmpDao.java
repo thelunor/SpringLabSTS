@@ -24,4 +24,6 @@ public interface EmpDao {
 	// 사원정보수정
 	public int updateEmp(Emp emp);
 	
+	// 부서번호 받아오기
+	public List<Integer> getDeptNos();
 }
