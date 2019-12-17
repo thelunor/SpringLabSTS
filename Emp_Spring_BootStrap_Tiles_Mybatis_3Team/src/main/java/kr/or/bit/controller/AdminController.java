@@ -1,5 +1,6 @@
 package kr.or.bit.controller;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
 
@@ -28,13 +29,13 @@ public class AdminController {
 	}
 	
 	// 로그인 화면(/views/login/Login.jsp)
-	@RequestMapping(value = "login.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "login.do", method = RequestMethod.GET)
 	public String login() {
 		return "login/Login";
 	}
 	
 	// 로그인 처리
-	@RequestMapping(value = "login.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String login(String id, String pwd, HttpSession session) {
 		String isLogin = null;
 		String view = null;
@@ -57,15 +58,15 @@ public class AdminController {
 	}
 	
 	// 로그아웃 처리
-	@RequestMapping(value = "logout.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect:index.htm";
+		return "redirect:index.do";
 	}
 	
 	// 전체 사원목록 조회
-	@RequestMapping(value = "MemberList.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "MemberList.do")
 	public String getEmps(Model model) {
 		List<Emp> emplist = null;
 		
@@ -83,24 +84,14 @@ public class AdminController {
 	}
 	
 	// 사원 상세정보보기
-	@RequestMapping(value = "MemberDetail.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "MemberDetail.do", method = RequestMethod.GET)
 	public String getEmpByEmpno(int empno, Model model) {
 		System.out.println("사원 상세정보보기 컨트롤러 진입");
 		Emp emp = null;
-		CommonsMultipartFile file = null;
-		String imagefilename = null;
 		
-		try {
-			EmpDao empdao = sqlsession.getMapper(EmpDao.class);
-			emp = empdao.getEmpByEmpno(empno);
-			imagefilename = emp.getFile().getOriginalFilename();
-			System.out.println(emp);
-		} catch (Exception e) {
-			System.out.println("MemberDetail Controller");
-			System.out.println("응? " + e.getMessage());
-			System.out.println(e.getStackTrace());
-			e.getStackTrace();
-		}
+		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
+		emp = empdao.getEmpByEmpno(empno);
+		System.out.println(emp);
 		
 		model.addAttribute("emp", emp);
 		
@@ -108,45 +99,41 @@ public class AdminController {
 	}
 	
 	// 사원 등록
-	@RequestMapping(value = "insertEmp.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "insertEmp.do", method = RequestMethod.GET)
 	public String insertEmp() {
 		return "register/Register";
 	}
 	
 	// 사원 등록
-	@RequestMapping(value = "insertEmp.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "insertEmp.do", method = RequestMethod.POST)
 	public String insertEmp(Emp emp, Model model, HttpServletRequest request) {
 		System.out.println("사원 등록 컨트롤러 진입");
 		
 		CommonsMultipartFile file = emp.getFile();
 		String imagefilename = file.getOriginalFilename();
-		String path = request.getServletContext().getRealPath("upload");
+		String path = request.getServletContext().getRealPath("/upload");
 		String filepath = path + "\\" + imagefilename;
 		
-		if (!file.equals("")) { // 실 파일 업로드
-			FileOutputStream fos = null;
+		FileOutputStream fos = null;
 
-			try {
-				fos = new FileOutputStream(filepath);
-				fos.write(file.getBytes());
-				fos.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-			}
-			emp.setImagefilename(imagefilename);
+		try {
+			fos = new FileOutputStream(filepath);
+			fos.write(file.getBytes());
+			fos.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
+		emp.setImagefilename(imagefilename);
 		
 		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
 		empdao.insertEmp(emp);
 		
-		model.addAttribute("emp", emp);
-		
-		return "redirect:index.htm";
+		return "redirect:index.do";
 	}
 	
 	// 사원 정보수정
-	@RequestMapping(value = "MemberEdit.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "MemberEdit.do", method = RequestMethod.GET)
 	public String updateEmp(int empno, Model model) {
 		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
 		Emp emp = empdao.getEmpByEmpno(empno);
@@ -156,42 +143,38 @@ public class AdminController {
 	}
 	
 	// 사원 정보수정
-	@RequestMapping(value = "MemberEdit.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "MemberEdit.do")
 	public String updateEmp(Emp emp, Model model, HttpServletRequest request) {
 		System.out.println("사원 정보수정 컨트롤러 진입");
 		CommonsMultipartFile file = emp.getFile();
 		String imagefilename = file.getOriginalFilename();
-		String path = request.getServletContext().getRealPath("upload");
+		String path = request.getServletContext().getRealPath("/upload");
 		String filepath = path + "\\" + imagefilename;
-		
-		if (!file.equals("")) { // 실 파일 업로드
-			FileOutputStream fos = null;
 
-			try {
-				fos = new FileOutputStream(filepath);
-				fos.write(file.getBytes());
-				fos.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-			}
-			emp.setImagefilename(imagefilename);
+		FileOutputStream fos = null;
+
+		try {
+			fos = new FileOutputStream(filepath);
+			fos.write(file.getBytes());
+			fos.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
+		emp.setImagefilename(imagefilename);
 		
 		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
 		empdao.updateEmp(emp);
 		
-		model.addAttribute("emp", emp);
-		
-		return "redirect:MemberList.htm";
+		return "redirect:MemberList.do";
 	}
 	
 	// 사원 삭제
-	@RequestMapping(value = "MemberDelete.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "MemberDelete.do", method = RequestMethod.GET)
 	public String deleteEmpByEmpno(int empno) {
 		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
 		empdao.deleteEmpByEmpno(empno);
 		
-		return "redirect:MemberList.htm";
+		return "redirect:MemberList.do";
 	}
 }

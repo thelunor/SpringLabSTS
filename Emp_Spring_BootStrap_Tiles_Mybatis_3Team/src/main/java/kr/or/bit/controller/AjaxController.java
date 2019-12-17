@@ -22,7 +22,7 @@ public class AjaxController {
 	}
 	
 	// 사원등록(dept 비동기)
-	@RequestMapping(value = "getDeptNos.htm", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "getDeptNos.do", method = RequestMethod.POST)
 	public @ResponseBody List<Integer> getDeptNos() {
 		EmpDao empdao = sqlsession.getMapper(EmpDao.class);
 		List<Integer> list = empdao.getDeptNos();

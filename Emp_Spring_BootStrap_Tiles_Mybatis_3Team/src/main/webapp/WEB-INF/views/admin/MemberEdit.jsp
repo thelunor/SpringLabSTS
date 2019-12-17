@@ -13,20 +13,20 @@
     <jsp:include page="/common/HeadTag.jsp"></jsp:include>
     <script type="text/javascript">
 
-    $(function(){
-    	 $("#photo").change(function(){
-    			var reader = new FileReader();
-
-    		    reader.onload = function (e) {
-    		        // get loaded data and render thumbnail.
-    		        document.getElementById("viewPhoto").src = e.target.result;
-    		    };
-
-    		    // read the image file as a data URL.
-    		    reader.readAsDataURL(this.files[0]);
-    		});
-    });
-    
+	    $(function() {
+	    	$("#file").change(function(){
+	    			var reader = new FileReader();
+	
+	    		    reader.onload = function (e) {
+	    		        // get loaded data and render thumbnail.
+	    		        document.getElementById("viewPhoto").src = e.target.result;
+	    		    };
+	
+	    		    // read the image file as a data URL.
+	    		    reader.readAsDataURL(this.files[0]);
+	   		});
+	   		
+	    });
    
 </script>
 </head>
@@ -53,22 +53,22 @@
                             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form action="" method="post" enctype="multipart/form-data">
+                                        <form action="MemberEdit.do" method="post" enctype="multipart/form-data">
                                         	<div class="form-group">
-                                                		<div class="form-row">
-                                                   			<div class="col-md-6">
-                                                        		<div class="form-label-group">
-                                                            		<img id="viewPhoto" name="viewPhoto" src="upload/${emp.imagefilename}" alt="프로필사진"  style="width:10em; height:100%;">
-                                                        		</div>
-                                                    		</div>
-                                                    		<div class="col-md-6">
-                                                        		<div class="form-label-group">
-                                                            		<input type="file" id="file" name="file" class="form-control" accept="image/*">
-                                                            		<label for="photo">photo</label>
-                                                        		</div>
-                                                    		</div>
-                                                		</div>
-                                            		</div>
+                                           		<div class="form-row">
+                                           			<div class="col-md-6">
+                                                   		<div class="form-label-group">
+                                                       		<img id="viewPhoto" name="viewPhoto" src="upload/${emp.imagefilename}" alt="프로필사진"  style="width:10em; height:100%;">
+                                                   		</div>
+                                               		</div>
+                                               		<div class="col-md-6">
+                                                   		<div class="form-label-group">
+                                                       		<input type="file" id="file" name="file" class="form-control" accept="image/*">
+                                                       		<label for="photo">photo</label>
+                                                   		</div>
+                                               		</div>
+                                           		</div>
+                                       		</div>
                                             <div class="form-group">
                                                 <div class="form-row">
                                                     <div class="col-md-6">
@@ -146,10 +146,8 @@
                                                     <input type="submit" class="btn btn-primary btn-block" value="Edit">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="button" class="btn btn-danger btn-block" value="Cancel"
-                                                        		onClick="MemberList.htm">
+                                                    <input type="button" class="btn btn-danger btn-block" value="Cancel" onclick="location.href='MemberList.do'">
                                                 </div>
-                                               
                                             </div>
                                         </form>
                                     </div>

@@ -18,7 +18,7 @@
    </c:choose>
     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="index.htm">
+            <a class="nav-link" href="index.do">
                 <i class="fas fa-home"></i>
                 <span>Main</span>
             </a>
@@ -40,7 +40,7 @@
 		            </a>
 		            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
 		                <!-- <h6 class="dropdown-header">Login Screens:</h6> -->
-		                <a class="dropdown-item" href="MemberList.htm">Member</a>
+		                <a class="dropdown-item" href="MemberList.do">Member</a>
 		            </div>
 		        </li>
 		        <li class="nav-item dropdown">
@@ -62,12 +62,12 @@
         	</c:when>
         	<c:otherwise>
         		 <li class="nav-item">
-		            <a class="nav-link" href="login.htm">
+		            <a class="nav-link" href="login.do">
 		                <i class="fas fa-sign-in-alt"></i>
 		                <span>Login</span></a>
 		        </li>
 		         <li class="nav-item">
-		            <a class="nav-link" href="insertEmp.htm">
+		            <a class="nav-link" href="insertEmp.do">
 		                <i class="fas fa-user-friends"></i>
 		                <span>Register</span></a>
 		        </li>

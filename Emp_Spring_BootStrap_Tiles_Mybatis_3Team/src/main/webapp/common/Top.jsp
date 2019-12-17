@@ -22,7 +22,7 @@
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button>
-        <a class="navbar-brand mr-1" href="index.htm">TEAM 🤞</a>
+        <a class="navbar-brand mr-1" href="index.do">TEAM 🤞</a>
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <li class="nav-item dropdown no-arrow">
@@ -34,12 +34,12 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                      <c:choose>
                      	<c:when test ="${isLogin == 'true'}"> 
-	                     	<a class="dropdown-item" href="MemberList.htm">Member</a>
+	                     	<a class="dropdown-item" href="MemberList.do">Member</a>
 		                    <div class="dropdown-divider"></div>
                      	 	<a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Logout</a>
                      	</c:when>
                      	<c:otherwise>
-                     	 	<a class="dropdown-item" href="login.htm">Login</a>
+                     	 	<a class="dropdown-item" href="login.do">Login</a>
                      	</c:otherwise>                     
                      </c:choose>
                 </div>

@@ -1,5 +1,8 @@
 package kr.or.bit.dto;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class Emp {
@@ -7,7 +10,7 @@ public class Emp {
 	private String ename;
 	private String job;
 	private int mgr;
-	private String hiredate;
+	private Date hiredate;
 	private int sal;
 	private int comm;
 	private int deptno;
@@ -25,7 +28,7 @@ public class Emp {
 
 	public Emp() { }
 	
-	public Emp(int empno, String ename, String job, int mgr, String hiredate, int sal, int comm, int deptno,
+	public Emp(int empno, String ename, String job, int mgr, Date hiredate, int sal, int comm, int deptno,
 			String imagefilename) {
 		super();
 		this.empno = empno;
@@ -72,11 +75,19 @@ public class Emp {
 	}
 
 	public String getHiredate() {
-		return hiredate;
+		return new SimpleDateFormat("yyyy-MM-dd").format(hiredate);
 	}
-
+	   
 	public void setHiredate(String hiredate) {
-		this.hiredate = hiredate;
+		Date date = new Date();
+
+		try {
+			date = new SimpleDateFormat("yyyy-MM-dd").parse(hiredate);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+  
+		this.hiredate = date;
 	}
 
 	public int getSal() {

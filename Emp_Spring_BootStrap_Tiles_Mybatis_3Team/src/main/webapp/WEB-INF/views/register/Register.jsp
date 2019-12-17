@@ -31,17 +31,16 @@
     <script type="text/javascript">
 	    $(function() {
 	    	$.ajax({
-	    		url:"getDeptNos.htm",
+	    		url:"getDeptNos.do",
 	    		type: "post",
 	    		dataType: "json",
 	    		success: function(data) {
 		    		console.log(data);
-		    		console.log(data.deptno);
-		    		console.log(data.deptnos);
+		    		
 	    			var dArray = [];
-	    			dArray = data.deptno;
+	    			dArray = data;
 	    			
-	    			for(var i=0; i<dArray.length;i++) {
+	    			for(var i = 0; i < dArray.length; i++) {
 	    				var option = document.createElement("option");
 	    				$(option).text(dArray[i]);
 	    				$("#deptSelect").append(option);
