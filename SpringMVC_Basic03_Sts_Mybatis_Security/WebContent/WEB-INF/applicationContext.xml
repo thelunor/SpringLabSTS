@@ -43,6 +43,16 @@ SqlSessionTemplate
 <bean id="sqlSessionFactoryBean"  class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="driverManagerDataSource"></property>
     <property name="mapperLocations" value="classpath*:mapper/*xml" />
+    <!-- 
+    	<property name="configLocation" value="classpath:/mybatis-config.xml" /> 
+    	
+		<resources: mybatis-config.xml 파일을 생성하고 아래와 같이 설정한다
+	    	<configuration>
+			    <settings>
+			        <setting name="mapUnderscoreToCamelCase" value="true"/>
+			    </settings>
+			</configuration>
+    -->
 </bean> 
 
 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

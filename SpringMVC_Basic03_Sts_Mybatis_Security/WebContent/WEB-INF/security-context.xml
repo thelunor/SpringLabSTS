@@ -100,8 +100,9 @@
 
 	<security:http>
 		<security:csrf disabled="true" />
-		<security:form-login login-page="/joinus/login.htm"
-		                     authentication-failure-url="/joinus/login.htm?error" />
+		<security:form-login default-target-url="/index.htm"
+							login-page="/joinus/login.htm"
+							authentication-failure-url="/joinus/login.htm?error" />
 		<security:logout logout-success-url="/index.htm" />
 		<security:intercept-url pattern="/customer/*Reg.htm" access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />                    
