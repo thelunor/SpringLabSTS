@@ -113,7 +113,7 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service data-source-ref="driverManagerDataSource"
 										users-by-username-query="SELECT USERID, pwd AS PASSWORD, 1 enabled FROM member where userid=?"
-										authorities-by-username-query="select m.USERID, r.ROLE_NAME  
+										authorities-by-username-query="select m.userid, r.role_name  
 															           from member m join roll r 
 															           on m.userid = r.userid 
 															           where m.userid=?" />

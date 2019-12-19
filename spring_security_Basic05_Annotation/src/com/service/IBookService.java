@@ -7,7 +7,8 @@ import com.bean.Book;
 
 public interface IBookService {
 
-	@PreAuthorize("hasRole('ROLE_WRITE')")
+	@PreAuthorize("hasRole('ROLE_WRITE')") // 인터페이스에 거는 애노테이션, preauth> 입력값 제어
+	// hasRole('ROLE_WRITE') 권한이 있는 사람만 북 추가 가능(함수를 태우기 전에 권한 검사)
 	void addBook(Book book);
 	
 	
@@ -19,6 +20,10 @@ public interface IBookService {
 	   
 	   "kglim" != "hong" > false 접근권한 예외 
 	   return  b; 
+	   
+	   returnObject >> Book 객체
+	   
+	   postauth >> 함수 실행 후 검사
 	*/
 	
 	/*
@@ -28,6 +33,7 @@ public interface IBookService {
 	 */
 	@PreAuthorize("#book.owner == authentication.name")
 	void deleteBook(Book book);
+	// preauth > 함수를 실행하기 전에 파라미터(북 객체)를 검사할 수 있다 >
 }
 
 

@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.SQLException;
 import vo.Member;
 
 public interface MemberDao {

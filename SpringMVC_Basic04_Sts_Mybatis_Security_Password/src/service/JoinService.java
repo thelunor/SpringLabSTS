@@ -31,6 +31,7 @@ public class JoinService {
 	public int idCheck(String userid) {
 		MemberDao memberdao = sqlsession.getMapper(MemberDao.class);
 		int result = memberdao.idCheck(userid);
+		System.out.println(result);
 		
 		return result;
 	}

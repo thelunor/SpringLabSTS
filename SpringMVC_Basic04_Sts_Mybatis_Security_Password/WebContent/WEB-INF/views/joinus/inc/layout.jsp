@@ -15,18 +15,19 @@
 		<script src="http://code.jquery.com/jquery-2.2.4.js"></script>
 		<script type="text/javascript">
 			$(function() {
-				$('#btnCheckUid').click(function(){
-					if($('#userid').val() === ""){
+				$('#btnCheckUid').click(function() {
+					if ($('#userid').val() === "") {
 						alert("아이디를 입력하세요");
 						$('#userid').focus();
 					} else {
 						$.ajax(
 								{
-									type:"post",
-									url:"idCheck.htm",
-									data:{"userid" : $('#userid').val()},
-									success:function(data){ //{"result":""}
-										if(data.result=="Fail"){
+									type: "post",
+									url: "idCheck.htm",
+									data: {"userid" : $('#userid').val()},
+									success: function(data) { //{"result":""}
+										if (data.result == "fail") {
+											console.log(data);
 											alert('중복된 아이디 입니다.');
 											$('#userid').focus();
 											$('#userid').val("");
@@ -35,7 +36,7 @@
 											$('#pwd').focus();
 										}
 									}
-								}	
+								}
 						);
 					}
 					

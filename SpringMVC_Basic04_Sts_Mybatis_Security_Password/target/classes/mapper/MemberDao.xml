@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<!-- 회원가입 시 아이디 중복확인 -->
-	<select id="idCheck">
+	<select id="idCheck" resultType="int">
 		select count(*) from member where userid = #{userid}
 	</select>
 

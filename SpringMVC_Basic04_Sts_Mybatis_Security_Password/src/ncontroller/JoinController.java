@@ -75,13 +75,13 @@ public class JoinController {
 		
 		if (result > 0) {
 			System.out.println("증복된 아이디입니다.");
-			model.addAttribute("result", "Fail");
+			model.addAttribute("result", "fail");
 		} else {
 			System.out.println("사용가능한 아이디입니다.");
 			model.addAttribute("result", "success");
 		}
-		
-		return jsonview;
+		System.out.println(jsonview);
+		return jsonview; // {"result":"fail"}
 	}
 	
 	// 로그인 화면

@@ -26,6 +26,7 @@ pre-post-annotations 설정을 활성화한다.
 component-scan 을 설정한 파일을 확인하거나 추가한다.
 
 <security:global-method-security pre-post-annotations="enabled" />
+>> default: disabled
 컨트롤러 스캔과 서비스 스캔을 따로하는 경우가 있다. 
 이럴때 두 설정파일에 모두 pre-post-annotations 설정을 활성화해야 한다.
 public interface PostService {

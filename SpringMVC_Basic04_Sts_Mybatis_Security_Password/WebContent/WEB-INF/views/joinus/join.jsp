@@ -12,7 +12,7 @@
 			<dl class="join-form-row">
 				<dt class="join-form-title">아이디</dt>
 				<dd class="join-form-data">
-					<input type="text" name="userid" />
+					<input type="text" name="userid" id="userid" />
 					<input id="btnCheckUid" class="button" type="button" value="중복확인" />
 				</dd>
 			</dl>

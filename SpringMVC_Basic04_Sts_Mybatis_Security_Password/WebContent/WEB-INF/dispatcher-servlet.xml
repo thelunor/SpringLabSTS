@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context 
@@ -52,16 +52,17 @@ IOC 컨테이너에 적재될 bean 객체 생성과 injection (DI)
 <!-- <bean id="memberDao"  class="dao.NewMemberDao"></bean> -->
 
 
-<!--  Tiles 설정하기 -->
+<!-- Tiles 설정하기   -->
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 	 <property name="definitions">
-		  <list>
-		   	<value>/WEB-INF/Tiles.xml</value>
-		  </list>
+	  <list>
+	   <value>/WEB-INF/Tiles.xml</value>
+	  </list>
 	 </property>
 	</bean>
+<!-- Tiles 관련 Resolver 구성  -->
 	<bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-	 <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	 	<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
 	</bean> 
 	
 	<!-- REST API -->	
