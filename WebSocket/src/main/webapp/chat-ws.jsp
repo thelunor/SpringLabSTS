@@ -1,15 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8"
-	trimDirectiveWhitespaces="true"%>
+	trimDirectiveWhitespaces="true" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>채팅</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	var wsocket;
 
 	function connect() {
-		wsocket = new WebSocket("ws://localhost:8090/chat/chat-ws");
+		wsocket = new WebSocket("ws://192.168.6.9:8090/WebSocket/chat-ws");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;

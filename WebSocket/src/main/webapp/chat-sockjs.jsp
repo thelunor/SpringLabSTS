@@ -5,12 +5,13 @@
 <head>
 <meta charset="utf-8">
 <title>채팅</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.js"></script>
 <script type="text/javascript">
 	var wsocket;
 
 	function connect() {
-		wsocket = new SockJS("http://localhost:8080/chat/chat.sockjs");
+		wsocket = new SockJS("http://localhost:8090/chat/chat.sockjs");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
