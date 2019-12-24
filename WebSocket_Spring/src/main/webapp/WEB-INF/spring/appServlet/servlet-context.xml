@@ -32,6 +32,7 @@
 	<websocket:handlers>
 		<websocket:mapping handler="echoHandler" path="/echo-ws"/>
 		<websocket:mapping handler="chatWebSocketHandler" path="/chat-ws"/>
+		<websocket:sockjs />
 	</websocket:handlers>
 	
 	<beans:bean id="echoHandler" class="kr.websocket.spring.EchoHandler" />

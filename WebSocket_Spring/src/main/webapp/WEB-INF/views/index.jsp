@@ -5,7 +5,7 @@
 <li>웹소켓:
 	<ul>
 	<li><a href="echo-ws.html">/echo-ws.html</a>: 웹 소켓 이용 에코. EchoHandler</li>
-	<li><a href="chat-ws.jsp">/chat-ws.jsp</a>: 웹 소켓 이용 채팅. ChatWebSocketHandler</li>
+	<li><a href="chat-ws.do">/chat-ws.jsp</a>: 웹 소켓 이용 채팅. ChatWebSocketHandler</li>
 	</ul>
 </li>
 <li>SockJS:

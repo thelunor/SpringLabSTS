@@ -33,7 +33,12 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "index";
 	}
 	
+	@RequestMapping(value = "chat-ws.do", method = RequestMethod.GET)
+	public String chatws(Model model) {
+		
+		return "chat-ws";
+	}
 }

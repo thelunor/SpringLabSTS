@@ -11,7 +11,7 @@
 		
 		function connect() {
 			wsocket = new WebSocket(
-					"ws://localhost:8090/WebSocket_Spring/chat-ws");
+					"ws://192.168.6.9:8090/WebSocket_Spring/chat-ws.do");
 			wsocket.onopen = onOpen;
 			wsocket.onmessage = onMessage;
 			wsocket.onclose = onClose;
